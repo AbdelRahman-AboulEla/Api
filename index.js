@@ -5,10 +5,12 @@ const { JSDOM } = require('jsdom');
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.get('/fetchMangaChapters/:mangaTitle', async (req, res) => {
-  const mangaTitle = req.params.mangaTitle;
-  const mangaBaseUrl = 'https://manga-lek.net'; // Replace with the actual base URL
+// Use a middleware to handle requests
+app.use(express.json());
 
+app.get('/api/fetchMangaChapters/:mangaTitle', async (req, res) => {
+  const mangaTitle = req.params.mangaTitle;
+  const mangaBaseUrl = 'https://manga-lek.net'; 
   try {
     const response = await axios.get(`${mangaBaseUrl}/manga/${mangaTitle}`);
     
@@ -35,7 +37,5 @@ app.get('/fetchMangaChapters/:mangaTitle', async (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
-});
-
+// Export your express app for Vercel
+module.exports = app;
