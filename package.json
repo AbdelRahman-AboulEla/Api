@@ -15,6 +15,6 @@
     "netlify-cli": "^17.10.2"
   },
   "engines": {
-    "node": "14.x"
+    "node": "20.x"
   }
 }
