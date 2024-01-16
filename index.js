@@ -38,9 +38,8 @@ const response = await axios.get(`${mangaBaseUrl}/manga/${mangaTitle}`, {
       res.status(response.status).send("Failed to load website");
     }
   } catch (error) {
-    console.error(`Error fetching chapters: ${error.message}`);
-    console.error(error);
-    res.status(500).send("Error fetching chapters");
+    
+    res.status(500).send(`Error fetching chapters: ${error.message}`);
   }
 });
 
