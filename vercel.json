@@ -8,8 +8,12 @@
     ],
     "routes": [
         {
+            "src": "/fetchMangaChapters/:mangaTitle",
+            "dest": "/index.js"
+        },
+        {
             "src": "/(.*)",
-            "dest": "/"
+            "dest": "/index.js"
         }
     ]
 }
