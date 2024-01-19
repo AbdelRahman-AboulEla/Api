@@ -17,9 +17,7 @@ app.get("/fetchMangaChapters/:mangaTitle", async (req, res) => {
   const mangaBaseUrl = "https://manga-lek.net";
   try {
     
-const response = await axios.get(`${mangaBaseUrl}/manga/${mangaTitle}`, {
-  timeout: 5000, // 5 seconds timeout
-});
+const response = await axios.get(`${mangaBaseUrl}/manga/${mangaTitle}`);
 
     if (response.status === 200) {
       const dom = new JSDOM(response.data);
